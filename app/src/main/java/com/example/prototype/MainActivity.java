@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void logIn(){
-        Intent intent = new Intent(this, ThemeActivity.class);
+        Intent intent = new Intent(this, GiftActivity.class);
         startActivity(intent);
     }
 }

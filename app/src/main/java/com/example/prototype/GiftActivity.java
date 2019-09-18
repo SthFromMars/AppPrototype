@@ -12,19 +12,36 @@ public class GiftActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gift);
+        setContentView(R.layout.gift_type_select);
 
-        Button button6 = (Button) findViewById(R.id.button6);
-        View.OnClickListener onClickListener = new View.OnClickListener() {
+
+        Button btnBoySelect = (Button) findViewById(R.id.boySelect);
+        btnBoySelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                selectGift();
+                showAvailableGifts();
             }
-        };
-        button6.setOnClickListener(onClickListener);
+        });
+        Button btnGirlSelect = (Button) findViewById(R.id.girlSelect);
+        btnGirlSelect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showAvailableGifts();
+            }
+        });
     }
-    void selectGift(){
-        Intent intent = new Intent(this, DecorationActivity.class);
+    private void showAvailableGifts(){
+        setContentView(R.layout.activity_gift);
+        Button button6 = (Button) findViewById(R.id.button6);
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectTheme();
+            }
+        });
+    }
+    void selectTheme(){
+        Intent intent = new Intent(this, ThemeActivity.class);
         startActivity(intent);
     }
 }
