@@ -2,10 +2,15 @@ package com.example.prototype;
 
 public class Product {
     String name;
+    String image;
     double price;
 
     public String getName() {
         return name;
+    }
+
+    public String getImage() {
+        return image;
     }
 
     public double getPrice() {
@@ -20,8 +25,13 @@ public class Product {
         this.price = price;
     }
 
-    public Product(String name, double price) {
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Product(String name, String image,double price) {
         this.name = name;
+        this.image = image;
         this.price = price;
     }
 }

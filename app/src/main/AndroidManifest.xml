@@ -12,9 +12,10 @@
         <activity android:name=".PurchaseActivity"></activity>
         <activity android:name=".DecorationActivity" />
         <activity android:name=".GiftActivity" />
-        <activity android:name=".Main2Activity" />
         <activity android:name=".ThemeActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".UserSelectActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

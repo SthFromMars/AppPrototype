@@ -28,7 +28,7 @@ public class ThemeActivity extends AppCompatActivity {
         button3.setOnClickListener(onClickListener);
     }
     void selectTheme(){
-        Intent intent = new Intent(this, GiftActivity.class);
+        Intent intent = new Intent(this, DecorationActivity.class);
         startActivity(intent);
     }
 }
