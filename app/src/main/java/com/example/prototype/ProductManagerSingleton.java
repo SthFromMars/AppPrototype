@@ -31,14 +31,14 @@ public class ProductManagerSingleton {
 
     private ArrayList<Gift> getGiftsFromDatabase(){
         ArrayList<Gift> gifts = new ArrayList<>();
-        Gift gift = new Gift("test1", "image link",1.05);
+        Gift gift = new Gift(1,"test1", "1",1.05);
         gifts.add(gift);
         return gifts;
     }
 
     private ArrayList<Decoration> getDecorationsFromDatabase(){
         ArrayList<Decoration> decorations = new ArrayList<>();
-        Decoration decoration = new Decoration("test2", "image link", 15.42);
+        Decoration decoration = new Decoration(1,"test2", "image link", 15.42);
         decorations.add(decoration);
         return decorations;
     }
