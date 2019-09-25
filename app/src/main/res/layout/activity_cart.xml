@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30sp"
+            android:layout_marginTop="30sp"
+            android:layout_marginRight="30sp"
+            android:gravity="center"
+            android:text="Krepšelis:"
+            android:textAllCaps="false"
+            android:textSize="40sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="40dp" />
+
+        <LinearLayout
+            android:id="@+id/cartLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="181dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/cartItemName"
+                android:layout_width="307dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="pavadin"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/cartItemPrice"
+                android:layout_width="103dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:text="kaina"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/wholePrice"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_marginRight="10dp"
+            android:gravity="right"
+            android:text="Viso: "
+            android:textSize="20sp" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+        <Button
+            android:id="@+id/btnGoToDecorations"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginLeft="50sp"
+            android:layout_marginRight="50sp"
+            android:text="Pasirikti dekoracijas" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="60dp" />
+
+        <Button
+            android:id="@+id/btnGoToBuy"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginLeft="50sp"
+            android:layout_marginRight="50sp"
+            android:text="pirkti" />
+
+    </LinearLayout>
+</FrameLayout>
