@@ -4,27 +4,32 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
+import android.util.Log;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class DecorationActivity extends AppCompatActivity {
+
+    private static final String TAG = "DecorationActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_decoration);
-
-        Button button4 = (Button) findViewById(R.id.button4);
-        View.OnClickListener onClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectDecoration();
-            }
-        };
-        button4.setOnClickListener(onClickListener);
+        setContentView(R.layout.decoration_grid_layout);
+        Log.d(TAG, "OncCreate");
+        testList();
     }
-    void selectDecoration(){
-        Intent intent = new Intent(this, PurchaseActivity.class);
+    void testList(){
+        ListView decorationListView = (ListView) findViewById(R.id.DecorationListView);
+        ArrayList<Decoration> gifts = ProductManagerSingleton.getInstance().getDecorations();
+
+        DecorationListAdapter adapter = new DecorationListAdapter(this, R.layout.adapter_gift_layout, gifts, this);
+        decorationListView.setAdapter(adapter);
+    }
+    void selected(){
+        Intent intent = new Intent(this, ShoppingBagActivity.class);
         startActivity(intent);
+
     }
 }

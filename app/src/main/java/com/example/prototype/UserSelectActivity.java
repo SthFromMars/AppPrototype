@@ -18,14 +18,14 @@ public class UserSelectActivity extends AppCompatActivity {
         btnClientLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendToClass(GiftActivity.class);
+                sendToClass(GenderActivity.class);
             }
         });
         Button btnWorkerLogin = (Button) findViewById(R.id.workerLogin);
         btnWorkerLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendToClass(MainActivity.class);
+                sendToClass(LogInActivity.class);
             }
         });
     }

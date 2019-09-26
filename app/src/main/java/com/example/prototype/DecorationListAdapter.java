@@ -1,22 +1,23 @@
 package com.example.prototype;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
-public class ProductListAdapter extends ArrayAdapter<Product> {
+public class DecorationListAdapter extends ArrayAdapter<Decoration> {
 
     private static final String TAG = "PersonListAdapter";
 
+    private DecorationActivity parent;
     private Context mContext;
     private int mResource;
     private int lastPosition = -1;
@@ -27,10 +28,11 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         Button btnBuy;
     }
 
-    public ProductListAdapter(Context context, int resource, ArrayList<Product> objects) {
+    public DecorationListAdapter(Context context, int resource, ArrayList<Decoration> objects, DecorationActivity parent) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;
+        this.parent = parent;
     }
 
     @NonNull
@@ -69,10 +71,15 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         holder.btnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "paspaustas:  " + id + " id", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), "paspaustas:  " + id + " id", Toast.LENGTH_SHORT).show();
+                productSelected(id);
             }
         });
 
         return convertView;
+    }
+    void productSelected(int id){
+        ShopingBag.getInstance().decoration=ProductManagerSingleton.getInstance().decorations.get(id);
+        parent.selected();
     }
 }
