@@ -2,6 +2,7 @@ package com.example.prototype;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +16,11 @@ import java.util.ArrayList;
 
 public class DecorationListAdapter extends ArrayAdapter<Decoration> {
 
-    private static final String TAG = "PersonListAdapter";
+    private static final String TAG = "PersonListAdapterTAG";
 
     private DecorationActivity parent;
     private Context mContext;
     private int mResource;
-    private int lastPosition = -1;
 
     private static class ViewHolder {
         TextView name;
@@ -42,7 +42,7 @@ public class DecorationListAdapter extends ArrayAdapter<Decoration> {
         String name = getItem(position).getName();
         double price = getItem(position).getPrice();
 
-        Product product = new Product(id, name,"1",price);
+        final Product product = new Product(id, name,"1",price);
 
         final View result;
 
@@ -68,10 +68,13 @@ public class DecorationListAdapter extends ArrayAdapter<Decoration> {
         holder.name.setText(product.getName());
         holder.price.setText(String.valueOf(product.getPrice()));
 
+        holder.btnBuy.setTag(id);
+        final int tmpId = product.getId();
+        final String tmpName = product.getName();
+        final double tmpPrice = product.getPrice();
         holder.btnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getContext(), "paspaustas:  " + id + " id", Toast.LENGTH_SHORT).show();
                 productSelected(id);
             }
         });

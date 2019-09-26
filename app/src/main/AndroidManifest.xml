@@ -21,6 +21,8 @@
         <activity android:name=".ThemeActivity" />
         <activity android:name=".UserSelectActivity" />
         <activity android:name=".LogInActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".CartActivity" />`
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

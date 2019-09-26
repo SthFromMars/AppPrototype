@@ -2,9 +2,12 @@ package com.example.prototype;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -12,7 +15,9 @@ import java.util.ArrayList;
 public class GiftActivity extends AppCompatActivity {
 
     private static final String TAG = "GiftActivity";
-
+    private ListView giftListView;
+    private ProductListAdapter adapter;
+    private static Context giftContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
