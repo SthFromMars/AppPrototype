@@ -16,7 +16,7 @@ public class GiftActivity extends AppCompatActivity {
 
     private static final String TAG = "GiftActivity";
     private ListView giftListView;
-    private ProductListAdapter adapter;
+    //private ProductListAdapter adapter;
     private static Context giftContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
