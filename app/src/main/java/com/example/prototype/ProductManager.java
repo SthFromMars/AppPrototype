@@ -21,9 +21,9 @@ public class ProductManager {
     }
 
     public void update(){
-        this.decorations = getDecorationsFromDatabase();
-        this.boyGifts = getBoyGiftsFromDatabase();
-        this.girlGifts = getGirlGiftsFromDatabase();
+        this.decorations = generateDecorations();
+        this.boyGifts = generateBoyGifts();
+        this.girlGifts = generateGirlGifts();
     }
     public ArrayList<Gift> getGifts(){
         if (selectedGender == 0) return boyGifts;
@@ -33,7 +33,7 @@ public class ProductManager {
         if(selectedGender == 0) return boyGifts.get(selectedGift).decorations;
         else return girlGifts.get(selectedGift).decorations;
     }
-    private ArrayList<Gift> getBoyGiftsFromDatabase(){
+    private ArrayList<Gift> generateBoyGifts(){
         ArrayList<Gift> gifts = new ArrayList<>();
         Gift robot = new Gift(0,"Robotas", "1",10, new ArrayList<>(
                 Arrays.asList(
@@ -56,7 +56,7 @@ public class ProductManager {
         return gifts;
     }
 
-    private ArrayList<Gift> getGirlGiftsFromDatabase(){
+    private ArrayList<Gift> generateGirlGifts(){
         ArrayList<Gift> gifts = new ArrayList<>();
         Gift doll = new Gift(0,"Lėlė", "1",15, new ArrayList<>(
                 Arrays.asList(
@@ -71,7 +71,7 @@ public class ProductManager {
         return gifts;
     }
 
-    private ArrayList<Decoration> getDecorationsFromDatabase(){
+    private ArrayList<Decoration> generateDecorations(){
         ArrayList<Decoration> decorations = new ArrayList<>();
         Decoration robotPlane = new Decoration(0,"robotPlane", "1", 15.42);
         Decoration planeCar = new Decoration(1,"planeCar", "1", 15.42);

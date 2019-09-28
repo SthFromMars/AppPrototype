@@ -52,7 +52,8 @@ public class PurchaseActivity extends AppCompatActivity {
                 address + ", " + city + ", " + postalCode,
                  email,
                  Cart.getInstance().gift,
-                 Cart.getInstance().decoration);
+                 Cart.getInstance().decoration,
+                 OrganizerManager.getInstance().getFreeOrganizer());
         OrderManager.getInstance().orders.add(order);
         return true;
     }

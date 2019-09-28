@@ -16,7 +16,7 @@
             android:layout_height="50dp" />
 
         <Button
-            android:id="@+id/button8"
+            android:id="@+id/State0"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Gauti užsakymai" />
@@ -26,7 +26,7 @@
             android:layout_height="50dp" />
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/State1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pradėti vykdyti užsakymai" />
@@ -36,7 +36,7 @@
             android:layout_height="50dp" />
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/State2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pabaigti užsakymai" />

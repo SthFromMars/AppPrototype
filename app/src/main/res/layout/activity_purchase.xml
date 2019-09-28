@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
@@ -14,7 +15,8 @@
             android:id="@+id/PName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Vardas" />
+            android:hint="Vardas"
+            android:text="testName" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -26,7 +28,8 @@
             android:id="@+id/PSurname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Pavardė" />
+            android:hint="Pavardė"
+            android:text="testSurname" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -38,7 +41,9 @@
             android:id="@+id/PPhoneNr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Tel. nr." />
+            android:hint="Tel. nr."
+            android:inputType="phone"
+            android:text="123456789" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -50,7 +55,8 @@
             android:id="@+id/PAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Adresas" />
+            android:hint="Adresas"
+            android:text="testAddress" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -62,7 +68,8 @@
             android:id="@+id/PCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Miestas" />
+            android:hint="Miestas"
+            android:text="testCity" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -74,7 +81,9 @@
             android:id="@+id/PPostalCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Pasšto kodas" />
+            android:hint="Pasšto kodas"
+            android:inputType="number"
+            android:text="123456" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -86,7 +95,8 @@
             android:id="@+id/PEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="El. paštas" />
+            android:hint="El. paštas"
+            android:text="testEmail" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
