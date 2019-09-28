@@ -1,25 +1,25 @@
 package com.example.prototype;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
-public class ProductListAdapter extends ArrayAdapter<Product> {
+public class GiftListAdapter extends ArrayAdapter<Gift> {
 
-    private static final String TAG = "PersonListAdapterTAG";
+    private static final String TAG = "PersonListAdapter";
 
+    private GiftActivity parent;
     private Context mContext;
     private int mResource;
+    private int lastPosition = -1;
 
     private static class ViewHolder {
         TextView name;
@@ -27,10 +27,11 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         Button btnBuy;
     }
 
-    public ProductListAdapter(Context context, int resource, ArrayList<Product> objects) {
+    public GiftListAdapter(Context context, int resource, ArrayList<Gift> objects, GiftActivity parent) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;
+        this.parent = parent;
     }
 
     @NonNull
@@ -40,7 +41,7 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         String name = getItem(position).getName();
         double price = getItem(position).getPrice();
 
-        final Product product = new Product(id, name,"1",price);
+        Product product = new Product(id, name,"1",price);
 
         final View result;
 
@@ -66,19 +67,19 @@ public class ProductListAdapter extends ArrayAdapter<Product> {
         holder.name.setText(product.getName());
         holder.price.setText(String.valueOf(product.getPrice()));
 
-        holder.btnBuy.setTag(id);
-        final int tmpId = product.getId();
-        final String tmpName = product.getName();
-        final double tmpPrice = product.getPrice();
         holder.btnBuy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "paspaustas:  " + id + " id", Toast.LENGTH_SHORT).show();
-                Cart.userCart.addToUserCart(tmpId,tmpName,tmpPrice);
-                GiftActivity.goToCart();
+                //Toast.makeText(getContext(), "paspaustas:  " + id + " id", Toast.LENGTH_SHORT).show();
+                productSelected(id);
             }
         });
 
         return convertView;
+    }
+    void productSelected(int id){
+        Cart.getInstance().gift= ProductManager.getInstance().getGifts().get(id);
+        ProductManager.getInstance().selectedGift=id;
+        parent.selected();
     }
 }
