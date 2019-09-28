@@ -29,12 +29,12 @@ public class GenderActivity extends AppCompatActivity {
         });
     }
     void selectBoy(){
-        ProductManagerSingleton.getInstance().selectedGender=0;
+        ProductManager.getInstance().selectedGender=0;
         Intent intent = new Intent(this, GiftActivity.class);
         startActivity(intent);
     }
     void selectGirl(){
-        ProductManagerSingleton.getInstance().selectedGender=1;
+        ProductManager.getInstance().selectedGender=1;
         Intent intent = new Intent(this, GiftActivity.class);
         startActivity(intent);
     }

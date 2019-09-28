@@ -22,13 +22,13 @@ public class DecorationActivity extends AppCompatActivity {
     }
     void testList(){
         ListView decorationListView = (ListView) findViewById(R.id.DecorationListView);
-        ArrayList<Decoration> gifts = ProductManagerSingleton.getInstance().getDecorations();
+        ArrayList<Decoration> gifts = ProductManager.getInstance().getDecorations();
 
-        DecorationListAdapter adapter = new DecorationListAdapter(this, R.layout.adapter_gift_layout, gifts, this);
+        DecorationListAdapter adapter = new DecorationListAdapter(this, R.layout.adapter_decoration_layout, gifts, this);
         decorationListView.setAdapter(adapter);
     }
     void selected(){
-        Intent intent = new Intent(this, ShoppingBagActivity.class);
+        Intent intent = new Intent(this, CartActivity.class);
         startActivity(intent);
 
     }

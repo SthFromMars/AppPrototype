@@ -3,20 +3,20 @@ package com.example.prototype;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class ProductManagerSingleton {
-    private static ProductManagerSingleton instance = new ProductManagerSingleton();
+public class ProductManager {
+    private static ProductManager instance = new ProductManager();
     ArrayList<Gift> boyGifts;
     ArrayList<Gift> girlGifts;
     ArrayList<Decoration> decorations;
     int selectedGender=0;
     int selectedGift=0;
 
-    public static ProductManagerSingleton getInstance() {
+    public static ProductManager getInstance() {
         return instance;
     }
 
 
-    private ProductManagerSingleton() {
+    private ProductManager() {
         this.update();
     }
 

@@ -1,7 +1,6 @@
 package com.example.prototype;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,8 +78,8 @@ public class GiftListAdapter extends ArrayAdapter<Gift> {
         return convertView;
     }
     void productSelected(int id){
-        ShopingBag.getInstance().gift=ProductManagerSingleton.getInstance().getGifts().get(id);
-        ProductManagerSingleton.getInstance().selectedGift=id;
+        Cart.getInstance().gift= ProductManager.getInstance().getGifts().get(id);
+        ProductManager.getInstance().selectedGift=id;
         parent.selected();
     }
 }

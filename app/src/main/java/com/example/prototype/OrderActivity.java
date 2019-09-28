@@ -2,14 +2,8 @@ package com.example.prototype;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
 import android.widget.TextView;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class OrderActivity extends AppCompatActivity {
 
@@ -19,7 +13,7 @@ public class OrderActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order);
 
         TextView price = findViewById(R.id.OrderPrice);
-        price.setText("Kaina: " + String.valueOf(ShopingBag.getInstance().decoration.price + ShopingBag.getInstance().gift.price));
+        price.setText("Kaina: " + String.valueOf(Cart.getInstance().decoration.price + Cart.getInstance().gift.price));
         final TextView status = findViewById(R.id.OrderStatus);
         status.setText("Užsakymo būsena: Laukiama apmokėjimo");
         /*new Timer().schedule(new TimerTask() {
