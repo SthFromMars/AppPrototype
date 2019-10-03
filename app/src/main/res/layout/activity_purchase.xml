@@ -81,7 +81,7 @@
             android:id="@+id/PPostalCode"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Pasšto kodas"
+            android:hint="Pašto kodas"
             android:inputType="number"
             android:text="123456" />
     </com.google.android.material.textfield.TextInputLayout>

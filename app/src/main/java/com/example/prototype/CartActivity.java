@@ -48,6 +48,7 @@ public class CartActivity extends AppCompatActivity {
         }
         else{
             final EditText number = findViewById(R.id.SBDecorationNumber);
+            number.setText(String.valueOf(cart.decoration.numberOfpeople));
             number.addTextChangedListener(new TextWatcher() {
 
             public void afterTextChanged(Editable s) {}
