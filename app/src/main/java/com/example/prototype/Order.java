@@ -7,19 +7,21 @@ public class Order {
     String phoneNr;
     String address;
     String Email;
-    ArrayList<Gift> gifts;
-    Decoration decoration;
+    Cart cart;
+    //ArrayList<Gift> gifts;
+    //Decoration decoration;
     int status = 0;
     int paymentType = -1;
     Organizer organizer;
 
-    public Order(String name, String phoneNr, String address, String email, ArrayList<Gift> gifts, Decoration decoration, Organizer organizer) {
+    public Order(String name, String phoneNr, String address, String email, Cart cart, Organizer organizer) {
         this.name = name;
         this.phoneNr = phoneNr;
         this.address = address;
         Email = email;
-        this.gifts = gifts;
-        this.decoration = decoration;
+        this.cart = cart;
+        //this.gifts = gifts;
+        //this.decoration = decoration;
         this.organizer = organizer;
     }
 
@@ -39,12 +41,16 @@ public class Order {
         return Email;
     }
 
-    public ArrayList<Gift> getGift() {
+    /*public ArrayList<Gift> getGift() {
         return gifts;
     }
 
-    public Decoration getDecoration() {
+    //public Decoration getDecoration() {
         return decoration;
+    }*/
+
+    public Cart getCart() {
+        return cart;
     }
 
     public int getPaymentType() {

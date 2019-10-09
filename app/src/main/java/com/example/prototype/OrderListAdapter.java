@@ -47,13 +47,16 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
         String address = getItem(position).getAddress();
         String email = getItem(position).getEmail();
         //Gift gift = getItem(position).getGift().get(0);
-        Decoration decoration = getItem(position).getDecoration();
+        //Decoration decoration = getItem(position).getDecoration();
         int paymentType = getItem(position).getPaymentType();
         Organizer organizer = getItem(position).getOrganizer();
 
-        ArrayList<Gift> gifts = getItem(position).gifts;
+        //ArrayList<Gift> gifts = getItem(position).gifts;
         //gifts.add(gift);
-        Order order = new Order(name, phoneNr, address, email, gifts, decoration, organizer);
+        ArrayList<Gift> gifts = getItem(position).cart.gifts;
+
+        //Order order = new Order(name, phoneNr, address, email, gifts, decoration, organizer);
+        Order order = new Order(name, phoneNr, address, email, Cart.getInstance(), organizer);
         order.paymentType = paymentType;
 
         final View result;
@@ -91,7 +94,7 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
             giftText = giftText + tempGift.name;
         }
         holder.gift.setText("Dovanų pavadinimai: " + giftText);
-        if (order.decoration !=null )holder.decoration.setText("Dekoracijų temos pavadinimas: " + order.decoration.name);
+        if (order.cart.decoration !=null )holder.decoration.setText("Dekoracijų temos pavadinimas: " + order.cart.decoration.name);
         if(paymentType == 1) holder.paymentType.setText("Mokėjimas grynais.");
         else holder.paymentType.setText("Mokėjimas pavedimu.");
 
