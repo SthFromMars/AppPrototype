@@ -5,10 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class OrderActivity extends AppCompatActivity {
 
@@ -19,8 +15,8 @@ public class OrderActivity extends AppCompatActivity {
 
 
         TextView price = findViewById(R.id.OrderPrice);
-        double priceDouble = Cart.getInstance().gift.price;
-        if(Cart.getInstance().decoration != null) priceDouble+= Cart.getInstance().decoration.price * Cart.getInstance().decoration.numberOfpeople;
+        double priceDouble = Cart.getInstance().gifts.get(0).price;
+        if(Cart.getInstance().decoration != null) priceDouble+= Cart.getInstance().decoration.price * Cart.getInstance().decoration.numberOfPeople;
         price.setText("Kaina: " + priceDouble);
         TextView status = findViewById(R.id.OrderStatus);
         status.setText("Užsakymo būsena: Laukiama apmokėjimo");

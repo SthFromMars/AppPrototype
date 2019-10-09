@@ -51,8 +51,9 @@ public class PurchaseActivity extends AppCompatActivity {
                  phoneNr,
                 address + ", " + city + ", " + postalCode,
                  email,
-                 Cart.getInstance().gift,
-                 Cart.getInstance().decoration,
+                 Cart.getInstance(),
+                 //Cart.getInstance().gifts,
+                 //Cart.getInstance().decoration,
                  OrganizerManager.getInstance().getFreeOrganizer());
         OrderManager.getInstance().orders.add(order);
         return true;

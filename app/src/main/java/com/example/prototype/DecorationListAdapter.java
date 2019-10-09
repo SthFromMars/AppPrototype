@@ -76,8 +76,8 @@ public class DecorationListAdapter extends ArrayAdapter<Decoration> {
     void productSelected(int id, String numberOfPeople){
         Cart cart = Cart.getInstance();
         cart.decoration= ProductManager.getInstance().decorations.get(id);
-        if(numberOfPeople.equals("")) cart.decoration.numberOfpeople = 1;
-        else cart.decoration.numberOfpeople = Integer.parseInt(numberOfPeople);
+        if(numberOfPeople.equals("")) cart.decoration.numberOfPeople = 1;
+        else cart.decoration.numberOfPeople = Integer.parseInt(numberOfPeople);
         parent.selected();
     }
 }

@@ -13,11 +13,13 @@ public class OrderManager {
         return instance;
     }
     void update(){
-        orders.add(new Order("test1", "1", "test1", "test1", ProductManager.getInstance().boyGifts.get(0), ProductManager.getInstance().decorations.get(0), OrganizerManager.getInstance().getFreeOrganizer()));
-        orders.add(new Order("test2", "2", "test2", "test2", ProductManager.getInstance().boyGifts.get(0), ProductManager.getInstance().decorations.get(0), OrganizerManager.getInstance().getFreeOrganizer()));
-        orders.add(new Order("test3", "3", "test3", "test3", ProductManager.getInstance().boyGifts.get(0), null, OrganizerManager.getInstance().getFreeOrganizer()));
-        orders.add(new Order("test4", "4", "test4", "test4", ProductManager.getInstance().boyGifts.get(0), ProductManager.getInstance().decorations.get(0), OrganizerManager.getInstance().getFreeOrganizer()));
-        orders.add(new Order("test5", "5", "test5", "test5", ProductManager.getInstance().boyGifts.get(0), null, OrganizerManager.getInstance().getFreeOrganizer()));
+        //ArrayList<Gift> gifts = new ArrayList<>();
+        //gifts.add(ProductManager.getInstance().boyGifts.get(0));
+        orders.add(new Order("test1", "1", "test1", "test1", Cart.getInstance(), OrganizerManager.getInstance().getFreeOrganizer()));
+        orders.add(new Order("test2", "2", "test2", "test2", Cart.getInstance(), OrganizerManager.getInstance().getFreeOrganizer()));
+        orders.add(new Order("test3", "3", "test3", "test3", Cart.getInstance(), OrganizerManager.getInstance().getFreeOrganizer()));
+        orders.add(new Order("test4", "4", "test4", "test4", Cart.getInstance(), OrganizerManager.getInstance().getFreeOrganizer()));
+        orders.add(new Order("test5", "5", "test5", "test5", Cart.getInstance(), OrganizerManager.getInstance().getFreeOrganizer()));
 
         orders.get(0).status=0;
         orders.get(1).status=1;

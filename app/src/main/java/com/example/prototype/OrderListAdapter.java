@@ -46,12 +46,17 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
         String phoneNr = getItem(position).getPhoneNr();
         String address = getItem(position).getAddress();
         String email = getItem(position).getEmail();
-        Gift gift = getItem(position).getGift();
-        Decoration decoration = getItem(position).getDecoration();
+        //Gift gift = getItem(position).getGift().get(0);
+        //Decoration decoration = getItem(position).getDecoration();
         int paymentType = getItem(position).getPaymentType();
         Organizer organizer = getItem(position).getOrganizer();
 
-        Order order = new Order(name, phoneNr, address, email, gift, decoration, organizer);
+        //ArrayList<Gift> gifts = getItem(position).gifts;
+        //gifts.add(gift);
+        ArrayList<Gift> gifts = getItem(position).cart.gifts;
+
+        //Order order = new Order(name, phoneNr, address, email, gifts, decoration, organizer);
+        Order order = new Order(name, phoneNr, address, email, Cart.getInstance(), organizer);
         order.paymentType = paymentType;
 
         final View result;
@@ -83,8 +88,13 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
         holder.phoneNr.setText("Tel. nr.: " + order.phoneNr);
         holder.address.setText("Adresas: " + order.address);
         holder.email.setText("El. paštas: " + order.Email);
-        holder.gift.setText("Dovanos pavadinimas: " + order.gift.name);
-        if (order.decoration !=null )holder.decoration.setText("Dekoracijų temos pavadinimas: " + order.decoration.name);
+        String giftText = "";
+        for (Gift tempGift: gifts) {
+            if(!giftText.equals("")) giftText = giftText + ", ";
+            giftText = giftText + tempGift.name;
+        }
+        holder.gift.setText("Dovanų pavadinimai: " + giftText);
+        if (order.cart.decoration !=null )holder.decoration.setText("Dekoracijų temos pavadinimas: " + order.cart.decoration.name);
         if(paymentType == 1) holder.paymentType.setText("Mokėjimas grynais.");
         else holder.paymentType.setText("Mokėjimas pavedimu.");
 
