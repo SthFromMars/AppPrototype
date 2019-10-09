@@ -58,11 +58,11 @@ public class ProductManager {
 
     private ArrayList<Gift> generateGirlGifts(){
         ArrayList<Gift> gifts = new ArrayList<>();
-        Gift doll = new Gift(0,"Lėlė", "1",15, new ArrayList<>(
+        Gift doll = new Gift(3,"Lėlė", "1",15, new ArrayList<>(
                 Arrays.asList(
                         decorations.get(6),
                         decorations.get(7))));
-        Gift teddyBear = new Gift(1,"Pliusinis meskinas", "1",50, new ArrayList<>(
+        Gift teddyBear = new Gift(4,"Pliusinis meskinas", "1",50, new ArrayList<>(
                 Arrays.asList(
                         decorations.get(6),
                         decorations.get(8))));

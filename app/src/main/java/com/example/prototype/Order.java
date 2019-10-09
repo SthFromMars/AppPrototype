@@ -1,22 +1,24 @@
 package com.example.prototype;
 
+import java.util.ArrayList;
+
 public class Order {
     String name;
     String phoneNr;
     String address;
     String Email;
-    Gift gift;
+    ArrayList<Gift> gifts;
     Decoration decoration;
     int status = 0;
     int paymentType = -1;
     Organizer organizer;
 
-    public Order(String name, String phoneNr, String address, String email, Gift gift, Decoration decoration, Organizer organizer) {
+    public Order(String name, String phoneNr, String address, String email, ArrayList<Gift> gifts, Decoration decoration, Organizer organizer) {
         this.name = name;
         this.phoneNr = phoneNr;
         this.address = address;
         Email = email;
-        this.gift = gift;
+        this.gifts = gifts;
         this.decoration = decoration;
         this.organizer = organizer;
     }
@@ -37,8 +39,8 @@ public class Order {
         return Email;
     }
 
-    public Gift getGift() {
-        return gift;
+    public ArrayList<Gift> getGift() {
+        return gifts;
     }
 
     public Decoration getDecoration() {

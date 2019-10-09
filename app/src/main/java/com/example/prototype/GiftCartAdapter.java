@@ -12,11 +12,11 @@ import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
-public class GiftListAdapter extends ArrayAdapter<Gift> {
+public class GiftCartAdapter extends ArrayAdapter<Gift> {
 
     private static final String TAG = "PersonListAdapter";
 
-    private GiftActivity parent;
+    private CartActivity parent;
     private Context mContext;
     private int mResource;
     private int lastPosition = -1;
@@ -24,10 +24,10 @@ public class GiftListAdapter extends ArrayAdapter<Gift> {
     private static class ViewHolder {
         TextView name;
         TextView price;
-        Button btnBuy;
+        Button remove;
     }
 
-    public GiftListAdapter(Context context, int resource, ArrayList<Gift> objects, GiftActivity parent) {
+    public GiftCartAdapter(Context context, int resource, ArrayList<Gift> objects, CartActivity parent) {
         super(context, resource, objects);
         mContext = context;
         mResource = resource;
@@ -53,7 +53,7 @@ public class GiftListAdapter extends ArrayAdapter<Gift> {
             holder = new ViewHolder();
             holder.name = (TextView) convertView.findViewById(R.id.name);
             holder.price = (TextView) convertView.findViewById(R.id.price);
-            holder.btnBuy = (Button) convertView.findViewById(R.id.btnBuy);
+            holder.remove = (Button) convertView.findViewById(R.id.remove);
 
             result = convertView;
 
@@ -67,7 +67,7 @@ public class GiftListAdapter extends ArrayAdapter<Gift> {
         holder.name.setText(product.getName());
         holder.price.setText(String.valueOf(product.getPrice()));
 
-        holder.btnBuy.setOnClickListener(new View.OnClickListener() {
+        holder.remove.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(getContext(), "paspaustas:  " + id + " id", Toast.LENGTH_SHORT).show();
@@ -78,16 +78,15 @@ public class GiftListAdapter extends ArrayAdapter<Gift> {
         return convertView;
     }
     void productSelected(int id){
-        ArrayList<Gift> gifts = ProductManager.getInstance().getGifts();
-        Gift selectedGift = null;
+        ArrayList<Gift> gifts = Cart.getInstance().gifts;
         for(Gift gift: gifts){
             if(gift.id == id) {
-                selectedGift = gift;
+                gifts.remove(gift);
                 break;
             }
         }
-        Cart.getInstance().gifts.add(selectedGift);
-        ProductManager.getInstance().selectedGift=id;
-        parent.selected();
+        //.add(ProductManager.getInstance().getGifts().get(id));
+        //ProductManager.getInstance().selectedGift=id;
+        parent.updateGifts();
     }
 }
