@@ -35,11 +35,21 @@ public class ChoseOrdersActivity extends AppCompatActivity {
                 switchToOrderList(2);
             }
         });
+        Button toMessage = findViewById(R.id.Messages);
+        toMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchToMessages();
+            }
+        });
     }
     void switchToOrderList(int state){
         Intent intent = new Intent(this, OrderListActivity.class);
         intent.putExtra("state", state);
         startActivity(intent);
-
+    }
+    void switchToMessages(){
+        Intent intent = new Intent(this, MessageListActivity.class);
+        startActivity(intent);
     }
 }

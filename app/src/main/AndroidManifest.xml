@@ -18,6 +18,7 @@
         <activity android:name=".GenderActivity" />
         <activity android:name=".PurchaseActivity" />
         <activity android:name=".DecorationActivity" />
+        <activity android:name=".MessageListActivity" />
         <activity android:name=".GiftActivity" />
         <activity android:name=".UserSelectActivity" />
         <activity android:name=".LogInActivity" />

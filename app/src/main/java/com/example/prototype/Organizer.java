@@ -1,12 +1,21 @@
 package com.example.prototype;
 
+import java.util.ArrayList;
+
 public class Organizer {
     String username;
     String password;
+    ArrayList<Message> messageList = new ArrayList<Message>();
 
     public Organizer(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+    public void addMessage(Message message){
+        this.messageList.add(message);
+    }
+    public ArrayList<Message> getMessageList(){
+        return this.messageList;
     }
 
     @Override
