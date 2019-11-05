@@ -11,10 +11,17 @@ import android.widget.TextView;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+
 public class PurchaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(checkIfUserLoggedIn())
+        {
+            switchToPayment();
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_purchase);
 
@@ -22,7 +29,8 @@ public class PurchaseActivity extends AppCompatActivity {
         purchaseNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(gatherInfo()) switchToPayment();
+
+                    if(gatherInfo()) switchToPayment();
             }
         });
     }
@@ -57,5 +65,36 @@ public class PurchaseActivity extends AppCompatActivity {
                  OrganizerManager.getInstance().getFreeOrganizer());
         OrderManager.getInstance().orders.add(order);
         return true;
+    }
+    boolean checkIfUserLoggedIn()
+    {
+        try {
+            FileInputStream fileIn = new FileInputStream("/data/user/0/com.example.prototype/files/userinfo.ser");
+            ObjectInputStream objectIn = new ObjectInputStream(fileIn);
+            UserInfo userinfo =(UserInfo)objectIn.readObject();
+            fileIn.close();
+            objectIn.close();
+            if(userinfo.loggedIn == true)
+            {
+                Order order = new Order(
+                        userinfo.name + " " +userinfo.surname,
+                        userinfo.phoneNr,
+                        userinfo.address + ", " + userinfo.city + ", " + userinfo.postCode,
+                        userinfo.email,
+                        Cart.getInstance(),
+                        //Cart.getInstance().gifts,
+                        //Cart.getInstance().decoration,
+                        OrganizerManager.getInstance().getFreeOrganizer());
+                OrderManager.getInstance().orders.add(order);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

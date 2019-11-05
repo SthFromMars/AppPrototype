@@ -13,12 +13,11 @@ public class UserSelectActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_user);
-
         Button btnClientLogin = (Button) findViewById(R.id.clientLogin);
         btnClientLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendToClass(GenderActivity.class);
+                sendToClass(UsserLogger.class);
             }
         });
         Button btnWorkerLogin = (Button) findViewById(R.id.workerLogin);

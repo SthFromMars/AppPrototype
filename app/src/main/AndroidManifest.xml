@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.prototype">
-
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OrderListActivity"></activity>
+        <activity android:name=".user_register"></activity>
+        <activity android:name=".LoginUser" />
+        <activity android:name=".OrderListActivity" />
         <activity android:name=".CartActivity" />
         <activity android:name=".ChoseOrdersActivity" />
         <activity android:name=".ThankSplashActivity" />
@@ -22,6 +24,7 @@
         <activity android:name=".GiftActivity" />
         <activity android:name=".UserSelectActivity" />
         <activity android:name=".LogInActivity" />
+        <activity android:name=".UsserLogger" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
