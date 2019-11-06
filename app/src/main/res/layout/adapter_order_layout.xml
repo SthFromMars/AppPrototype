@@ -61,6 +61,14 @@
             android:gravity="center"
             android:text="TextView" />
 
+        <Button
+            android:id="@+id/buttonMoveOrder"
+            android:layout_width="match_parent"
+            android:layout_height="29dp"
+            android:text="Perkelti užsakyma"
+            android:textSize="8sp"
+            android:visibility="invisible" />
+
     </LinearLayout>
 
 </LinearLayout>

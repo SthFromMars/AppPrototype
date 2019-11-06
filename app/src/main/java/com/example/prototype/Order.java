@@ -41,6 +41,10 @@ public class Order {
         return Email;
     }
 
+    public int getStatus() {return status;}
+
+    public void setStatus(int status) {this.status = status;}
+
     /*public ArrayList<Gift> getGift() {
         return gifts;
     }

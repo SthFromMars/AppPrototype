@@ -29,6 +29,7 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
         TextView gift;
         TextView decoration;
         TextView paymentType;
+        Button changeStatus;
     }
 
     public OrderListAdapter(Context context, int resource, ArrayList<Order> objects, OrderListActivity parent) {
@@ -40,7 +41,7 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
 
     @NonNull
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         String name = getItem(position).getName();
         String phoneNr = getItem(position).getPhoneNr();
@@ -50,6 +51,7 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
         //Decoration decoration = getItem(position).getDecoration();
         int paymentType = getItem(position).getPaymentType();
         Organizer organizer = getItem(position).getOrganizer();
+        final int status = getItem(position).getStatus();
 
         //ArrayList<Gift> gifts = getItem(position).gifts;
         //gifts.add(gift);
@@ -58,6 +60,7 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
         //Order order = new Order(name, phoneNr, address, email, gifts, decoration, organizer);
         Order order = new Order(name, phoneNr, address, email, Cart.getInstance(), organizer);
         order.paymentType = paymentType;
+        order.status = status;
 
         final View result;
 
@@ -75,6 +78,21 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
             holder.decoration = (TextView) convertView.findViewById(R.id.OrderDecoration);
             holder.paymentType = (TextView) convertView.findViewById(R.id.OrderPayment);
 
+
+            if(status<2) {
+                holder.changeStatus = (Button) convertView.findViewById(R.id.buttonMoveOrder);
+                holder.changeStatus.setVisibility(View.VISIBLE);
+            }
+
+            final int tmp = getItem(position).getStatus() + 1;
+            if(status<2)
+            holder.changeStatus.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getItem(position).setStatus(tmp);
+                }
+            });
+
             result = convertView;
 
             convertView.setTag(holder);
@@ -88,6 +106,7 @@ public class OrderListAdapter extends ArrayAdapter<Order> {
         holder.phoneNr.setText("Tel. nr.: " + order.phoneNr);
         holder.address.setText("Adresas: " + order.address);
         holder.email.setText("El. paštas: " + order.Email);
+
         String giftText = "";
         for (Gift tempGift: gifts) {
             if(!giftText.equals("")) giftText = giftText + ", ";

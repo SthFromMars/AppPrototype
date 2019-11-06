@@ -21,7 +21,7 @@ public class MessageListActivity extends AppCompatActivity {
     void viewMessages(){
         ListView messageListView = findViewById(R.id.listView);
         ArrayList<Message> mesages = OrganizerManager.getInstance().signedIn.getMessageList();
-        Message tmp = new Message("Naujas uzsakymas", "Jus gavote nauja uzsakyma","administratorius", "me");
+        Message tmp = new Message("Priskirtas naujas užzsakymas:", "Jums buvo priskirtas naujas užsakymas. Prašome jį peržiūrėti","administratorius", "me");
         OrganizerManager.getInstance().signedIn.addMessage(tmp);
         MessageListAdapter adapter = new MessageListAdapter(this, R.layout.adapter_message_layout, mesages, this);
         messageListView.setAdapter(adapter);
