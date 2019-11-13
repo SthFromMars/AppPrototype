@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,7 @@ public class GiftCartAdapter extends ArrayAdapter<Gift> {
         TextView name;
         TextView price;
         Button remove;
+        ImageView image;
     }
 
     public GiftCartAdapter(Context context, int resource, ArrayList<Gift> objects, CartActivity parent) {
@@ -40,8 +42,9 @@ public class GiftCartAdapter extends ArrayAdapter<Gift> {
         final int id = getItem(position).getId();
         String name = getItem(position).getName();
         double price = getItem(position).getPrice();
+        String image = getItem(position).getImage();
 
-        Product product = new Product(id, name,"1",price);
+        Product product = new Product(id, name,image,price);
 
         final View result;
 
@@ -51,6 +54,7 @@ public class GiftCartAdapter extends ArrayAdapter<Gift> {
             LayoutInflater inflater = LayoutInflater.from(mContext);
             convertView = inflater.inflate(mResource, parent, false);
             holder = new ViewHolder();
+            holder.image = (ImageView) convertView.findViewById(R.id.imageView);
             holder.name = (TextView) convertView.findViewById(R.id.name);
             holder.price = (TextView) convertView.findViewById(R.id.price);
             holder.remove = (Button) convertView.findViewById(R.id.remove);
@@ -63,7 +67,11 @@ public class GiftCartAdapter extends ArrayAdapter<Gift> {
             holder = (ViewHolder) convertView.getTag();
             result = convertView;
         }
-
+        if (product.image.equals("car"))holder.image.setImageResource(R.drawable.car);
+        if (product.image.equals("plane")) holder.image.setImageResource(R.drawable.plane);
+        if (product.image.equals("robot")) holder.image.setImageResource(R.drawable.robot);
+        if (product.image.equals("doll")) holder.image.setImageResource(R.drawable.doll);
+        if(product.image.equals("tedy")) holder.image.setImageResource(R.drawable.tedy);
         holder.name.setText(product.getName());
         holder.price.setText(String.valueOf(product.getPrice()));
 

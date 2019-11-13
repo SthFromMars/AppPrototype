@@ -35,17 +35,17 @@ public class ProductManager {
     }
     private ArrayList<Gift> generateBoyGifts(){
         ArrayList<Gift> gifts = new ArrayList<>();
-        Gift robot = new Gift(0,"Robotas", "1",10, new ArrayList<>(
+        Gift robot = new Gift(0,"Robotas", "robot",10, new ArrayList<>(
                 Arrays.asList(
                         decorations.get(0),
                         decorations.get(2),
                         decorations.get(3))));
-        Gift plane = new Gift(1,"Lektuvas", "1",15,new ArrayList<>(
+        Gift plane = new Gift(1,"Lektuvas", "plane",15,new ArrayList<>(
                 Arrays.asList(
                         decorations.get(0),
                         decorations.get(1),
                         decorations.get(4))));
-        Gift car = new Gift(2,"Masina", "1",10, new ArrayList<>(
+        Gift car = new Gift(2,"Masina", "car",10, new ArrayList<>(
                 Arrays.asList(
                         decorations.get(1),
                         decorations.get(2),
@@ -58,11 +58,11 @@ public class ProductManager {
 
     private ArrayList<Gift> generateGirlGifts(){
         ArrayList<Gift> gifts = new ArrayList<>();
-        Gift doll = new Gift(3,"Lėlė", "1",15, new ArrayList<>(
+        Gift doll = new Gift(3,"Lėlė", "doll",15, new ArrayList<>(
                 Arrays.asList(
                         decorations.get(6),
                         decorations.get(7))));
-        Gift teddyBear = new Gift(4,"Pliusinis meskinas", "1",50, new ArrayList<>(
+        Gift teddyBear = new Gift(4,"Pliusinis meskinas", "tedy",50, new ArrayList<>(
                 Arrays.asList(
                         decorations.get(6),
                         decorations.get(8))));
