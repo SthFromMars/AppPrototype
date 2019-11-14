@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -88,9 +89,20 @@ public class CartActivity extends AppCompatActivity {
                     removeDecoration(cart, decorationLayout, chooseDecorations);
                 }
             });
+
+            ImageView image =  findViewById(R.id.SBDecorationImage);
+            if (cart.decoration.name.equals("robotPlane"))image.setImageResource(R.drawable.robotplane);
+            if (cart.decoration.name.equals("planeCar")) image.setImageResource(R.drawable.planecar);
+            if (cart.decoration.name.equals("robotCar")) image.setImageResource(R.drawable.robotcar);
+            if (cart.decoration.name.equals("robot")) image.setImageResource(R.drawable.robots);
+            if(cart.decoration.name.equals("plane")) image.setImageResource(R.drawable.planes);
+            if(cart.decoration.name.equals("car")) image.setImageResource(R.drawable.cars);
+
+            if (cart.decoration.name.equals("dollTeddyBear")) image.setImageResource(R.drawable.dollteddybear);
+            if (cart.decoration.name.equals("doll"))image.setImageResource(R.drawable.dolls);
+            if(cart.decoration.name.equals("teddyBears")) image.setImageResource(R.drawable.teddybears);
         }
         fullPriceText.setText("Viso: " + String.format("%1$,.2f", fullPrice));
-
     }
 
     private void removeDecoration(Cart cart, LinearLayout decorationLayout, Button chooseDecorations) {

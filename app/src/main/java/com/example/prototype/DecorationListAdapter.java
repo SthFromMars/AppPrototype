@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -26,6 +27,7 @@ public class DecorationListAdapter extends ArrayAdapter<Decoration> {
         TextView price;
         EditText number;
         Button btnBuy;
+        ImageView image;
     }
 
     public DecorationListAdapter(Context context, int resource, ArrayList<Decoration> objects, DecorationActivity parent) {
@@ -40,8 +42,8 @@ public class DecorationListAdapter extends ArrayAdapter<Decoration> {
         final int id = getItem(position).getId();
         String name = getItem(position).getName();
         double price = getItem(position).getPrice();
-
-        final Product product = new Product(id, name,"1",price);
+        String image = getItem(position).getImage();
+        final Product product = new Product(id, name,image,price);
 
         final ViewHolder holder;
 
@@ -49,6 +51,7 @@ public class DecorationListAdapter extends ArrayAdapter<Decoration> {
             LayoutInflater inflater = LayoutInflater.from(mContext);
             convertView = inflater.inflate(mResource, parent, false);
             holder = new ViewHolder();
+            holder.image = (ImageView) convertView.findViewById(R.id.imageView);
             holder.name = convertView.findViewById(R.id.name);
             holder.price = convertView.findViewById(R.id.price);
             holder.number = convertView.findViewById(R.id.number);
@@ -59,6 +62,18 @@ public class DecorationListAdapter extends ArrayAdapter<Decoration> {
         else{
             holder = (ViewHolder) convertView.getTag();
         }
+
+        if (product.image.equals("robotPlane"))holder.image.setImageResource(R.drawable.robotplane);
+        if (product.image.equals("planeCar")) holder.image.setImageResource(R.drawable.planecar);
+        if (product.image.equals("robotCar")) holder.image.setImageResource(R.drawable.robotcar);
+        if (product.image.equals("robots")) holder.image.setImageResource(R.drawable.robots);
+        if(product.image.equals("planes")) holder.image.setImageResource(R.drawable.planes);
+        if(product.image.equals("cars")) holder.image.setImageResource(R.drawable.cars);
+
+        if (product.image.equals("dollTeddyBear")) holder.image.setImageResource(R.drawable.dollteddybear);
+        if (product.image.equals("dolls")) holder.image.setImageResource(R.drawable.dolls);
+        if(product.image.equals("teddyBears")) holder.image.setImageResource(R.drawable.teddybears);
+
 
         holder.name.setText(product.getName());
         holder.price.setText("Kaina vienam: " + (product.getPrice()) + " Kiekis: ");

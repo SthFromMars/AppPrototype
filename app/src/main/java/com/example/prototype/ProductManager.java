@@ -58,11 +58,11 @@ public class ProductManager {
 
     private ArrayList<Gift> generateGirlGifts(){
         ArrayList<Gift> gifts = new ArrayList<>();
-        Gift doll = new Gift(3,"Lėlė", "doll",15, new ArrayList<>(
+        Gift doll = new Gift(0,"Lėlė", "doll",15, new ArrayList<>(
                 Arrays.asList(
                         decorations.get(6),
                         decorations.get(7))));
-        Gift teddyBear = new Gift(4,"Pliusinis meskinas", "tedy",50, new ArrayList<>(
+        Gift teddyBear = new Gift(1,"Pliusinis meskinas", "tedy",50, new ArrayList<>(
                 Arrays.asList(
                         decorations.get(6),
                         decorations.get(8))));
@@ -73,15 +73,15 @@ public class ProductManager {
 
     private ArrayList<Decoration> generateDecorations(){
         ArrayList<Decoration> decorations = new ArrayList<>();
-        Decoration robotPlane = new Decoration(0,"robotPlane", "1", 15.42);
-        Decoration planeCar = new Decoration(1,"planeCar", "1", 15.42);
-        Decoration robotCar = new Decoration(2,"robotCar", "1", 15.42);
-        Decoration robot = new Decoration(3,"robot", "1", 15.42);
-        Decoration plane = new Decoration(4,"plane", "1", 15.42);
-        Decoration car = new Decoration(5,"car", "1", 15.42);
-        Decoration dollTeddyBear = new Decoration(6,"dollTeddyBear", "1", 15.42);
-        Decoration doll = new Decoration(7,"doll", "1", 15.42);
-        Decoration teddyBear = new Decoration(8,"teddyBear", "1", 15.42);
+        Decoration robotPlane = new Decoration(0,"robotPlane", "robotPlane", 15.42);
+        Decoration planeCar = new Decoration(1,"planeCar", "planeCar", 15.42);
+        Decoration robotCar = new Decoration(2,"robotCar", "robotCar", 15.42);
+        Decoration robot = new Decoration(3,"robot", "robots", 15.42);
+        Decoration plane = new Decoration(4,"plane", "planes", 15.42);
+        Decoration car = new Decoration(5,"car", "cars", 15.42);
+        Decoration dollTeddyBear = new Decoration(6,"dollTeddyBear", "dollTeddyBear", 15.42);
+        Decoration doll = new Decoration(7,"doll", "dolls", 15.42);
+        Decoration teddyBear = new Decoration(8,"teddyBears", "teddyBears", 15.42);
         decorations.add(robotPlane);
         decorations.add(planeCar);
         decorations.add(robotCar);
